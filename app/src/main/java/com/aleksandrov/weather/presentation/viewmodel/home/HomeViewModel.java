@@ -1,4 +1,4 @@
-package com.aleksandrov.weather.ui.home;
+package com.aleksandrov.weather.presentation.viewmodel.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

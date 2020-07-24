@@ -1,4 +1,4 @@
-package com.aleksandrov.weather.ui.settings;
+package com.aleksandrov.weather.presentation.view.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,20 +8,28 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.aleksandrov.weather.R;
+import com.aleksandrov.weather.presentation.viewmodel.settings.SettingsViewModel;
+import com.aleksandrov.weather.utils.ViewModelFactory;
 
-public class SettingsFragment extends Fragment {
+import javax.inject.Inject;
+
+import dagger.android.support.DaggerFragment;
+
+public class SettingsFragment extends DaggerFragment {
+
+    @Inject
+    ViewModelFactory mFactory;
 
     private SettingsViewModel mSettingsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        mSettingsViewModel =
-                ViewModelProviders.of(this).get(SettingsViewModel.class);
+        mSettingsViewModel = new ViewModelProvider(this, mFactory)
+                .get(SettingsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
         mSettingsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -32,4 +40,5 @@ public class SettingsFragment extends Fragment {
         });
         return root;
     }
+
 }

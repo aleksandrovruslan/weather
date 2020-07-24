@@ -1,16 +1,16 @@
-package com.aleksandrov.weather.ui.append;
+package com.aleksandrov.weather.presentation.viewmodel.settings;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class AppendViewModel extends ViewModel {
+public class SettingsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public AppendViewModel() {
+    public SettingsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is append fragment");
+        mText.setValue("This is settings fragment");
     }
 
     public LiveData<String> getText() {

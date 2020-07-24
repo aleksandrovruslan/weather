@@ -7,19 +7,23 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.aleksandrov.weather.ui.home.HomeFragment"
+        android:name="com.aleksandrov.weather.presentation.view.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_append"
+            app:destination="@id/nav_append" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_append"
-        android:name="com.aleksandrov.weather.ui.append.AppendFragment"
+        android:name="com.aleksandrov.weather.presentation.view.append.AppendFragment"
         android:label="@string/menu_append_city"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.aleksandrov.weather.ui.settings.SettingsFragment"
+        android:name="com.aleksandrov.weather.presentation.view.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>
