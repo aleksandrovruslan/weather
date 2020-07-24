@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.aleksandrov.weather.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeFragment extends Fragment {
 
@@ -30,6 +31,7 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+        FloatingActionButton fab = root.findViewById(R.id.append_fab);
         return root;
     }
 }

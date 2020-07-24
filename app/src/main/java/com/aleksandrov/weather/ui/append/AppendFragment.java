@@ -1,4 +1,4 @@
-package com.aleksandrov.weather.ui.slideshow;
+package com.aleksandrov.weather.ui.append;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.aleksandrov.weather.R;
 
-public class SlideshowFragment extends Fragment {
+public class AppendFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private AppendViewModel mAppendViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        mAppendViewModel =
+                ViewModelProviders.of(this).get(AppendViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        final TextView textView = root.findViewById(R.id.text_gallery);
+        mAppendViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
