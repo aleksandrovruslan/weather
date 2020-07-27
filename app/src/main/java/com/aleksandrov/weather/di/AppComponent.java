@@ -5,6 +5,7 @@ import android.app.Application;
 import com.aleksandrov.weather.WeatherApp;
 import com.aleksandrov.weather.di.global.ActivityBuildersModule;
 import com.aleksandrov.weather.di.global.AppModule;
+import com.aleksandrov.weather.di.global.RepositoryModule;
 
 import javax.inject.Singleton;
 
@@ -17,7 +18,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {
         AndroidSupportInjectionModule.class,
         AppModule.class,
-        ActivityBuildersModule.class
+        ActivityBuildersModule.class,
+        RepositoryModule.class
 })
 public interface AppComponent extends AndroidInjector<WeatherApp> {
 

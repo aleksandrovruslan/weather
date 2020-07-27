@@ -7,31 +7,30 @@ import com.aleksandrov.weather.presentation.viewmodel.append.AppendViewModel;
 import com.aleksandrov.weather.presentation.viewmodel.home.HomeViewModel;
 import com.aleksandrov.weather.presentation.viewmodel.settings.SettingsViewModel;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import dagger.multibindings.IntoMap;
 
 @Module
-public class MainViewModelsModule {
+public abstract class MainViewModelsModule {
 
     @Provides
     @IntoMap
     @ViewModelKey(HomeViewModel.class)
-    public ViewModel provideHomeViewModel() {
+    public static ViewModel provideHomeViewModel() {
         return new HomeViewModel();
     }
 
-    @Provides
+    @Binds
     @IntoMap
     @ViewModelKey(AppendViewModel.class)
-    public ViewModel provideAppendViewModel() {
-        return new AppendViewModel();
-    }
+    public abstract ViewModel bindAppendViewModel(AppendViewModel viewModel);
 
     @Provides
     @IntoMap
     @ViewModelKey(SettingsViewModel.class)
-    public ViewModel provideSettingsViewModel() {
+    public static ViewModel provideSettingsViewModel() {
         return new SettingsViewModel();
     }
 
