@@ -1,6 +1,7 @@
 package com.aleksandrov.weather.di.main;
 
 import com.aleksandrov.weather.presentation.view.append.AppendFragment;
+import com.aleksandrov.weather.presentation.view.details.DetailsFragment;
 import com.aleksandrov.weather.presentation.view.home.HomeFragment;
 import com.aleksandrov.weather.presentation.view.settings.SettingsFragment;
 
@@ -15,6 +16,9 @@ public interface MainFragmentBuildersModule {
 
     @ContributesAndroidInjector
     AppendFragment contributeAppendCityFragment();
+
+    @ContributesAndroidInjector
+    DetailsFragment contributeDetailsFragment();
 
     @ContributesAndroidInjector
     SettingsFragment contributeSettingsFragment();

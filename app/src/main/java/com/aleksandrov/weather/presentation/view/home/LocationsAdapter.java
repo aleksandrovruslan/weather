@@ -39,7 +39,8 @@ class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.LocationVie
 
     @Override
     public void onBindViewHolder(@NonNull LocationViewHolder holder, int position) {
-        holder.onBind(mLocations.get(position), null);
+        BaseLocation location = mLocations.get(position);
+        holder.onBind(location, v -> mViewModel.detailsForWoeid(location.getWoeid()));
     }
 
     @Override
@@ -64,7 +65,7 @@ class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.LocationVie
         public void onBind(BaseLocation location, View.OnClickListener listener) {
             mLocationName.setText(location.getTitle());
             mLocationLatLong.setText(location.getLattLong());
-//            mLayout.setOnClickListener(listener);
+            mLayout.setOnClickListener(listener);
         }
 
     }

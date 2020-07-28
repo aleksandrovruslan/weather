@@ -13,6 +13,14 @@
         <action
             android:id="@+id/action_nav_home_to_nav_append"
             app:destination="@id/nav_append" />
+        <action
+            android:id="@+id/action_nav_home_to_details_fragment"
+            app:destination="@id/details_fragment">
+            <argument
+                android:name="woeid"
+                app:argType="integer"
+                android:defaultValue="0" />
+        </action>
     </fragment>
 
     <fragment
@@ -26,4 +34,14 @@
         android:name="com.aleksandrov.weather.presentation.view.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/details_fragment"
+        android:name="com.aleksandrov.weather.presentation.view.details.DetailsFragment"
+        android:label="@string/fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="woeid"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

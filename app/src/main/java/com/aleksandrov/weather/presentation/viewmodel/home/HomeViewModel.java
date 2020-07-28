@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.aleksandrov.weather.data.entities.BaseLocation;
 import com.aleksandrov.weather.data.repository.WeatherRepository;
+import com.aleksandrov.weather.presentation.viewmodel.Event;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class HomeViewModel extends ViewModel {
     private WeatherRepository mRepository;
     private MutableLiveData<List<BaseLocation>> mLocationsLiveData;
     private MutableLiveData<Boolean> mProgressLiveData;
+    private MutableLiveData<Event<Integer>> mDetailsWoeidLiveData;
     private CompositeDisposable mDisposable;
 
     @Inject
@@ -27,6 +29,7 @@ public class HomeViewModel extends ViewModel {
         mRepository = repository;
         mLocationsLiveData = new MutableLiveData<>();
         mProgressLiveData = new MutableLiveData<>();
+        mDetailsWoeidLiveData = new MutableLiveData<>();
         mDisposable = new CompositeDisposable();
         loadLocations();
     }
@@ -37,6 +40,14 @@ public class HomeViewModel extends ViewModel {
 
     public LiveData<Boolean> getProgress() {
         return mProgressLiveData;
+    }
+
+    public LiveData<Event<Integer>> getDetailsWoeid() {
+        return mDetailsWoeidLiveData;
+    }
+
+    public void detailsForWoeid(int woeid) {
+        mDetailsWoeidLiveData.setValue(new Event<>(woeid));
     }
 
     private void loadLocations() {

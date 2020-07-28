@@ -43,8 +43,8 @@
 
     <ProgressBar
         android:id="@+id/progress"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="@dimen/progress_bar_side"
+        android:layout_height="@dimen/progress_bar_side"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

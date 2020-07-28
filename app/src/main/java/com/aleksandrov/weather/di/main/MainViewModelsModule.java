@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.aleksandrov.weather.di.ViewModelKey;
 import com.aleksandrov.weather.presentation.viewmodel.append.AppendViewModel;
+import com.aleksandrov.weather.presentation.viewmodel.details.DetailsViewModel;
 import com.aleksandrov.weather.presentation.viewmodel.home.HomeViewModel;
 import com.aleksandrov.weather.presentation.viewmodel.settings.SettingsViewModel;
 
@@ -24,6 +25,11 @@ public abstract class MainViewModelsModule {
     @IntoMap
     @ViewModelKey(AppendViewModel.class)
     public abstract ViewModel bindAppendViewModel(AppendViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailsViewModel.class)
+    public abstract ViewModel bindDetailsViewModel(DetailsViewModel viewModel);
 
     @Provides
     @IntoMap

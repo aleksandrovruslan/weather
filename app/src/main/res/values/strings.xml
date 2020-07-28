@@ -13,4 +13,7 @@
     <string name="message_location_add">Add location to favorites?</string>
     <string name="message_for_home_empty">The location storage is empty, \n
         add locations for display.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_details">fragment_details</string>
 </resources>
