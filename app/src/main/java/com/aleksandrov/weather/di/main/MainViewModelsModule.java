@@ -15,12 +15,10 @@ import dagger.multibindings.IntoMap;
 @Module
 public abstract class MainViewModelsModule {
 
-    @Provides
+    @Binds
     @IntoMap
     @ViewModelKey(HomeViewModel.class)
-    public static ViewModel provideHomeViewModel() {
-        return new HomeViewModel();
-    }
+    public abstract ViewModel bindHomeViewModel(HomeViewModel viewModel);
 
     @Binds
     @IntoMap

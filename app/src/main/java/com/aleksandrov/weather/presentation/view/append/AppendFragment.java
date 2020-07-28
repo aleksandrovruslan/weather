@@ -29,7 +29,7 @@ public class AppendFragment extends DaggerFragment implements AppendDialogFragme
 
     private AppendViewModel mAppendViewModel;
     private ProgressBar mProgressBar;
-    private LocationAdapter mAdapter;
+    private LocationsAdapter mAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class AppendFragment extends DaggerFragment implements AppendDialogFragme
         View root = inflater.inflate(R.layout.fragment_append, container, false);
         mProgressBar = root.findViewById(R.id.progress);
         final RecyclerView recycler = root.findViewById(R.id.recycler_locations);
-        mAdapter = new LocationAdapter(mAppendViewModel);
+        mAdapter = new LocationsAdapter(mAppendViewModel);
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         recycler.setAdapter(mAdapter);
         EditText editLocationName = root.findViewById(R.id.edit_location_name);

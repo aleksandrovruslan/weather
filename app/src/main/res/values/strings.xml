@@ -11,4 +11,6 @@
     <string name="menu_append_city">Append city</string>
     <string name="menu_settings">Settings</string>
     <string name="message_location_add">Add location to favorites?</string>
+    <string name="message_for_home_empty">The location storage is empty, \n
+        add locations for display.</string>
 </resources>

@@ -16,12 +16,12 @@ import com.aleksandrov.weather.presentation.viewmodel.append.AppendViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocationViewHolder> {
+class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.LocationViewHolder> {
 
     private List<Location> mLocations = new ArrayList<>();
     private AppendViewModel mAppendViewModel;
 
-    public LocationAdapter(AppendViewModel appendViewModel) {
+    public LocationsAdapter(AppendViewModel appendViewModel) {
         mAppendViewModel = appendViewModel;
     }
 
@@ -35,7 +35,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Locati
     @Override
     public LocationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new LocationViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.location_item, parent, false));
+                .inflate(R.layout.append_location_item, parent, false));
     }
 
     @Override
@@ -49,7 +49,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Locati
         return mLocations.size();
     }
 
-    public class LocationViewHolder extends RecyclerView.ViewHolder {
+    class LocationViewHolder extends RecyclerView.ViewHolder {
 
         private TextView mLocationName;
         private ImageButton mAddButton;

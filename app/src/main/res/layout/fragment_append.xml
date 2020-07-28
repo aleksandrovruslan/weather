@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_location_name"
-        tools:listitem="@layout/location_item" />
+        tools:listitem="@layout/append_location_item" />
 
     <ProgressBar
         android:id="@+id/progress"
