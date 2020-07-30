@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.aleksandrov.weather.R;
 import com.aleksandrov.weather.presentation.viewmodel.append.AppendViewModel;
 import com.aleksandrov.weather.utils.ViewModelFactory;
+import com.google.android.material.snackbar.Snackbar;
 
 import javax.inject.Inject;
 
@@ -30,12 +31,14 @@ public class AppendFragment extends DaggerFragment implements AppendDialogFragme
     private AppendViewModel mAppendViewModel;
     private ProgressBar mProgressBar;
     private LocationsAdapter mAdapter;
+    private View mAddLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mAppendViewModel = new ViewModelProvider(this, mFactory)
                 .get(AppendViewModel.class);
         View root = inflater.inflate(R.layout.fragment_append, container, false);
+        mAddLayout = root.findViewById(R.id.add_layout);
         mProgressBar = root.findViewById(R.id.progress);
         final RecyclerView recycler = root.findViewById(R.id.recycler_locations);
         mAdapter = new LocationsAdapter(mAppendViewModel);
@@ -71,6 +74,9 @@ public class AppendFragment extends DaggerFragment implements AppendDialogFragme
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         mAppendViewModel.saveLocation();
+        Snackbar.make(mAddLayout, R.string.add_location_message
+                , Snackbar.LENGTH_LONG)
+                .show();
         dialog.dismiss();
     }
 
